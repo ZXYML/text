@@ -62,5 +62,34 @@
 			<div class="markdown">温馨的北欧风情，你我一个有温度的家 拷贝</div>
 		</div>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="./utils.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			let userid = getQueryString('userid');
+			let caseid = getQueryString('caseid');
+			console.log('对接js代码')
+			$.ajax({    
+		    url: ApiRootUrl+'/case/details',// 跳转到 action    
+		    data:{    
+		    	"caseid": 6 // caseid
+		    },    
+		    type:'post',    
+		    cache:false,    
+		    dataType:'json',    
+		    success:function(res) {
+		    	console.log(res)    
+		    	if(res.code == 200 ){      
+		    		console.log(res) 
+		    	}else{    
+		    		alert(res.data);    
+		    	}    
+		    },    
+		    error : function() {       
+		    	alert("异常！");    
+		    }    
+		});
+		}
+	</script>
 </body>
 </html>

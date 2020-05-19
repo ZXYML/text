@@ -68,5 +68,29 @@
 		</div>
 
 	</div>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="./utils.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			//1.$.ajax带json数据的异步请求  
+			$.ajax({    
+		    url: ApiRootUrl+'/case/list',// 跳转到 action     
+		    type:'post',    
+		    cache:false,    
+		    dataType:'json',    
+		    success:function(res) {    
+		    	if(res.code == 200 ){      
+		    		console.log(res) 
+		    		$('.container').html()
+		    	}else{    
+		    		alert(res.data);    
+		    	}      
+		    },    
+		    error : function() {       
+		          alert("异常！");    
+		      }    
+		  }); 
+		}
+	</script>
 </body>
 </html>
